@@ -46,13 +46,12 @@ import assemblyai as aai
 from elevenlabs.client import ElevenLabs
 from elevenlabs import stream
 import ollama
-import constants
 
 class AIVoiceAgent:
     def __init__(self):
-        aai.settings.api_key = constants.ASSEMBLYAI_API_KEY
+        aai.settings.api_key = "ASSEMBLYAI_API_KEY"
         self.client = ElevenLabs(
-            api_key = constants.ELEVENLABS_API_KEY
+            api_key = "ELEVENLABS_API_KEY"
         )
 
         self.transcriber = None
