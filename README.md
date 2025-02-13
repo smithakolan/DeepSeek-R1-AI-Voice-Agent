@@ -61,5 +61,5 @@ ollama pull deepseek-r1:7b
 Once all dependencies are installed and the model is downloaded, simply run:
 
 ```bash
-python voiceagent.py
+python AIVoiceAgent.py
 ```
