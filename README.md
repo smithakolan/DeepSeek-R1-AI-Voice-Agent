@@ -28,36 +28,38 @@ DeepSeek R1 is accessed via Ollama. Install Ollama from:
 - **Debian/Ubuntu:**  
   ```bash
   apt install portaudio19-dev
+  ```
 
   MacOS:
-brew install portaudio
-✅ Install Python Libraries
+  ```bash
+  brew install portaudio
+  ```
+####✅ Install Python Libraries
 
 Before running the script, install the required dependencies:
 
+```bash
 pip install "assemblyai[extras]"
 pip install ollama
 pip install elevenlabs
+```
 ✅ (MacOS Only) Install MPV for Audio Streaming
 
+```bash
 brew install mpv
-Step 2: Download the DeepSeek R1 Model
+```
+### Step 2: Download the DeepSeek R1 Model
 Since this script uses DeepSeek R1 via Ollama, download the model locally by running:
 
+```bash
 ollama pull deepseek-r1:7b
-Step 3: Real-Time Transcription with AssemblyAI
-The script captures real-time audio from your microphone and converts speech to text using AssemblyAI.
-This transcription is then sent to the AI model for processing.
+```
 
-Step 4: AI Response with DeepSeek R1
-Once a transcript is generated, it is sent to DeepSeek R1 (7B model) via Ollama.
-The model generates a response, which is then converted into speech using ElevenLabs.
 
-Step 5: Live Audio Streaming
-The AI-generated response is streamed back to the user in real-time as speech, using ElevenLabs' text-to-speech engine.
-
-🎯 Running the Script
+### 🎯 Running the Script
 
 Once all dependencies are installed and the model is downloaded, simply run:
 
-python main.py
+```bash
+python voiceagent.py
+```
