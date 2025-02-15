@@ -2,6 +2,8 @@
 
 This project enables real-time speech-to-text transcription using **AssemblyAI**, generates AI responses with **DeepSeek R1 (7B model) via Ollama**, and converts text responses into speech using **ElevenLabs**. The entire process happens in real-time, allowing for seamless interaction.  
 
+**Disclaimer**: Using the Assembly ai, you need to add your credit card
+
 ---
 
 ## 🚀 Features  
