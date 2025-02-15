@@ -1,0 +1,3 @@
+assemblyai[extras] 
+ollama
+elevenlabs 
