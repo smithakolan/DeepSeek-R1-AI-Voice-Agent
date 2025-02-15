@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Step 1:
 For realtime speech-to-text:
@@ -49,9 +50,9 @@ import ollama
 
 class AIVoiceAgent:
     def __init__(self):
-        aai.settings.api_key = "ASSEMBLYAI_API_KEY"
+        aai.settings.api_key = ""
         self.client = ElevenLabs(
-            api_key = "ELEVENLABS_API_KEY"
+            api_key = ""
         )
 
         self.transcriber = None
@@ -93,11 +94,11 @@ class AIVoiceAgent:
             print(transcript.text, end="\r")
 
     def on_error(self, error: aai.RealtimeError):
-        #print("An error occured:", error)
+        print("An error occured:", error)
         return
 
     def on_close(self):
-        #print("Closing Session")
+        print("Closing Session")
         return    
     
     def generate_ai_response(self, transcript):
