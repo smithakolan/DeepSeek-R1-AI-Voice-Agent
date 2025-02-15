@@ -55,6 +55,12 @@ Since this script uses DeepSeek R1 via Ollama, download the model locally by run
 ollama pull deepseek-r1:7b
 ```
 
+## 🛠️ Setup with the install.sh script
+Alternatively you could use our install.sh script to take care of the setup.
+```bash
+chmod +x install.sh
+./install.sh
+```
 
 ### 🎯 Running the Script
 
