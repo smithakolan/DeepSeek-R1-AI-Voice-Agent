@@ -133,7 +133,7 @@ class AIVoiceAgent:
         print(f"\nUser:{transcript.text}", end="\r\n")
 
         ollama_stream = ollama.chat(
-            model = "llama3.2:1b",
+            model = "deepseek-r1:7b",
             messages = self.full_transcript,
             stream = True,
         )
