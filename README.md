@@ -2,6 +2,8 @@
 
 This project enables real-time speech-to-text transcription using **AssemblyAI**, generates AI responses with **DeepSeek R1 (7B model) via Ollama**, and converts text responses into speech using **ElevenLabs**. The entire process happens in real-time, allowing for seamless interaction.  
 
+**Disclaimer**: Using the Assembly ai, you need to add your credit card
+
 ---
 
 ## 🚀 Features  
@@ -55,6 +57,12 @@ Since this script uses DeepSeek R1 via Ollama, download the model locally by run
 ollama pull deepseek-r1:7b
 ```
 
+## 🛠️ Setup with the install.sh script
+Alternatively you could use our install.sh script to take care of the setup.
+```bash
+chmod +x install.sh
+./install.sh
+```
 
 ### 🎯 Running the Script
 

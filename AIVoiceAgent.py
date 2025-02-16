@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Step 1:
 For realtime speech-to-text:
@@ -46,12 +47,37 @@ import assemblyai as aai
 from elevenlabs.client import ElevenLabs
 from elevenlabs import stream
 import ollama
+import os
+
+
+
+def read_env():
+    f = open(".env", "r")
+    try:
+
+        lines = f.readlines()
+
+        for line in lines:
+
+            env_vars = line.split("=")
+            if len(env_vars) < 2:
+                continue
+
+            key = env_vars[0].strip()
+            value = env_vars[1].strip()
+
+            os.environ[key] = value # set the environemnt varables
+    except:
+        print("Error reading .env file")
+    
+    f.close()
 
 class AIVoiceAgent:
     def __init__(self):
-        aai.settings.api_key = "ASSEMBLYAI_API_KEY"
+        read_env()
+        aai.settings.api_key = os.getenv("ASSEMBLYAI_API_KEY")
         self.client = ElevenLabs(
-            api_key = "ELEVENLABS_API_KEY"
+            api_key = os.getenv("ELEVENLABS_API_KEY"),
         )
 
         self.transcriber = None
@@ -93,11 +119,11 @@ class AIVoiceAgent:
             print(transcript.text, end="\r")
 
     def on_error(self, error: aai.RealtimeError):
-        #print("An error occured:", error)
+        print("An error occured:", error)
         return
 
     def on_close(self):
-        #print("Closing Session")
+        print("Closing Session")
         return    
     
     def generate_ai_response(self, transcript):
