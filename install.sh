@@ -134,4 +134,9 @@ echo "Installing mpv for audio playback and portaudio for the microphone (done).
 # Finally, pull the DeepSeek R1 model
 pull_deepseek_r1
 
+python -m venv open_agent 
+source open_agent/bin/activate
+python -m pip install -r requirements.txt 
+
+
 echo "All installations complete."
