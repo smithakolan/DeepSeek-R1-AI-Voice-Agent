@@ -7,6 +7,7 @@ instl_hombrew(){
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
+
 instl_mpv_mac(){
     if ! command -v brew &> /dev/null
     then
@@ -131,12 +132,16 @@ fi
 
 echo "Installing mpv for audio playback and portaudio for the microphone (done)."
 
-# Finally, pull the DeepSeek R1 model
-pull_deepseek_r1
+nohub ollama serve > ollamaSrvLog.txt 2>&1 &
 
-python -m venv open_agent 
-source open_agent/bin/activate
-python -m pip install -r requirements.txt 
+# Pull the DeepSeek R1 model and Llama 3B model 
+pull_deepseek_r1
+# For better speed llama 3b could do the job
+pull_llama_3b
+
+python -m venv open_agent || python3 -m venv open_agent
+source ./open_agent/bin/activate
+python -m pip install -r requirements.txt || python3 -m pip install -r requirements.txt
 
 
 echo "All installations complete."
