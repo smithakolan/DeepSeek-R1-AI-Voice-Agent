@@ -47,12 +47,37 @@ import assemblyai as aai
 from elevenlabs.client import ElevenLabs
 from elevenlabs import stream
 import ollama
+import os
+
+
+
+def read_env():
+    f = open(".env", "r")
+    try:
+
+        lines = f.readlines()
+
+        for line in lines:
+
+            env_vars = line.split("=")
+            if len(env_vars) < 2:
+                continue
+
+            key = env_vars[0].strip()
+            value = env_vars[1].strip()
+
+            os.environ[key] = value # set the environemnt varables
+    except:
+        print("Error reading .env file")
+    
+    f.close()
 
 class AIVoiceAgent:
     def __init__(self):
-        aai.settings.api_key = ""
+        read_env()
+        aai.settings.api_key = os.getenv("ASSEMBLYAI_API_KEY")
         self.client = ElevenLabs(
-            api_key = ""
+            api_key = os.getenv("ELEVENLABS_API_KEY"),
         )
 
         self.transcriber = None
@@ -108,7 +133,7 @@ class AIVoiceAgent:
         print(f"\nUser:{transcript.text}", end="\r\n")
 
         ollama_stream = ollama.chat(
-            model = "deepseek-r1:7b",
+            model = "llama3.2:1b",
             messages = self.full_transcript,
             stream = True,
         )
